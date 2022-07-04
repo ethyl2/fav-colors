@@ -54,9 +54,12 @@ favColorsShuffled.forEach(item => {
         circleEl.style.border = `6px solid white` 
     }
     if (item.terColor) {
-        circleEl.style.outline = `2px solid ${item.terHex}`
+        // Outline isn't being rendered rounded-full in safari, so trying out switch to box-shadow
+        // circleEl.style.outline = `2px solid ${item.terHex}`
+        circleEl.style.boxShadow = `0 0 0 2pt ${item.terHex}`
     } else {
-        circleEl.style.outline = `2px solid black`
+        // circleEl.style.outline = `2px solid black`
+        circleEl.style.boxShadow = `0 0 0 2pt black`
     }
     const nameP = document.createElement('p')
     nameP.textContent = item.name
